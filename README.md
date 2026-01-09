@@ -1,7 +1,6 @@
 # BioStream Analytics: End-to-End Genomic Data Pipeline
 
-![Genomic Dashboard Preview](https://via.placeholder.com/800x400.png?text=Place+Your+Dashboard+Screenshot+Here)
-![BioStream Analytics dashboard displaying a 4-panel layout with species distribution pie chart, fragment length histogram, GC-content scatter plot, and stability clustering visualization on a dark laboratory-themed interface](https://via.placeholder.com/800x400.png?text=Place+Your+Dashboard+Screenshot+Here)
+![Genomic Dashboard Preview](https://public.tableau.com/views/Genomic_Batch_Analysis_QC/Dashboard1?:language=en-GB&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## 🧪 Project Overview
 **BioStream Analytics** is a high-performance data engineering and visualization workstation. As a **MSc Biochemistry graduate** transitioning into **Data Analytics**, I developed this project to demonstrate a complete **ETL (Extract, Transform, Load)** lifecycle using complex biological data.
