@@ -1,7 +1,7 @@
 -- SQL Queries for Genomic Analysis Database
 
 
--- SQLite Query 1 
+-- SQLite Query 1 - Summary statistics by organism
 SELECT 
     organism,
     COUNT(*) AS sample_count,
@@ -11,27 +11,27 @@ FROM genomic_analysis
 GROUP BY organism
 ORDER BY avg_gc_content DESC; 
 
--- SQLite Query 2
+-- SQLite Query 2 - High GC content samples within specific length range
 SELECT sample_id, organism, gc_content_pct
 FROM genomic_analysis
 WHERE gc_content_pct > 50.0 
 AND sequence_length BETWEEN 200 AND 800
 ORDER BY gc_content_pct DESC;
 
--- SQLite Query 3
+-- SQLite Query 3 - Average molecular weight by data source
 SELECT 
     data_source, 
     AVG(mw_gmol) AS average_molecular_weight
 FROM genomic_analysis
 GROUP BY data_source;
 
--- SQLite Query 4
+-- SQLite Query 4 - Top 5 heaviest samples by molecular weight
 SELECT sample_id, organism, mw_gmol, sequence_length
 FROM genomic_analysis
 ORDER BY mw_gmol DESC
 LIMIT 5;
 
--- SQLite Query 5
+-- SQLite Query 5 - Samples with below average GC content
 SELECT sample_id, organism, gc_content_pct
 FROM genomic_analysis
 WHERE gc_content_pct < (SELECT AVG(gc_content_pct) FROM genomic_analysis)
