@@ -1,65 +1,45 @@
 # BioStream Analytics: End-to-End Genomic Data Pipeline
 
-![Genomic Dashboard Preview](<div class='tableauPlaceholder' id='viz1767945693351' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ge&#47;Genomic_Batch_Analysis_QC&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Genomic_Batch_Analysis_QC&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ge&#47;Genomic_Batch_Analysis_QC&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div>                )
+## 📊 Interactive QC Dashboard
+**Click the image below to explore the live interactive dashboard on Tableau Public:**
+
+[![Genomic Analysis Dashboard](seqanalyser/dashboard_preview.png)](https://public.tableau.com/app/profile/chitra.kulkarni)
+
+---
 
 ## 🧪 Project Overview
-**BioStream Analytics** is a high-performance data engineering and visualization workstation. As a **MSc Biochemistry graduate** transitioning into **Data Analytics**, I developed this project to demonstrate a complete **ETL (Extract, Transform, Load)** lifecycle using complex biological data.
+**BioStream Analytics** is a high-performance data engineering workstation. As a **MSc Biochemistry graduate**, I developed this pipeline to automate the journey from raw genetic sequences to laboratory insights.
 
-The pipeline automates the journey from raw genetic code to laboratory insights by integrating real-time API fetching, synthetic data engineering, relational database management, and interactive visual analytics.
+### 🛠️ The Data Lifecycle
+1. **Extraction:** Fetches real DNA sequences via **NCBI Entrez API** (Python).
+2. **Transformation:** Calculates $GC\%$ content and Molecular Weight (Pandas).
+3. **Loading:** Migrates processed data into a structured **SQL database** (SQLite).
+4. **Analytics:** Visualizes batch quality and species distribution (**Tableau**).
 
 ---
 
 ## 🚀 Key Features
-
-### 1. Data Engineering (Python & API)
-* **NCBI Integration:** Programmatically retrieves the **Human Insulin (INS) gene** sequence via the Entrez API to serve as a biological gold-standard control.
-* **Synthetic Data Generation:** A high-throughput generator produces 99+ mock sequences with randomized but statistically relevant GC-content and molecular weights.
-* **Biochemical Engine:** Custom algorithms perform $O(1)$ codon translation, Molecular Weight ($MW$) estimation, and GC-content percentage calculation.
-
-### 2. Relational Database Management (SQL)
-* **Structured Storage:** Automatically builds and populates a local SQLite database (`BioResearch.db`) from processed sequence data.
-* **Analytical Suite:** Includes optimized SQL queries for organism profiling, stability filtering, and quality control (QC) anomaly detection.
-
-### 3. User Interface (CustomTkinter)
-* **Genomic Workstation:** A modern, dark-themed GUI built for laboratory environments to allow manual DNA input, FASTA file parsing, and instant metric calculation.
-* **Automated Reporting:** Generates timestamped `.txt` reports for professional documentation and audit trails.
-
-### 4. Visual Analytics (Tableau)
-* **QC Dashboard:** A 4-panel interactive dashboard visualizing species distribution, fragment length histograms, and GC-stability clusters.
-
----
-
-## 🧬 Scientific Methodology
-The pipeline calculates the molecular mass of single-stranded DNA using monophosphate weight constants:
-- **Adenine (A):** 313.21 g/mol
-- **Thine (T):** 304.19 g/mol
-- **Cytosine (C):** 289.18 g/mol
-- **Guanine (G):** 329.21 g/mol
-
-The formula applied is:
-$$MW = \sum (w_{base} \times n_{base}) + 79.0$$
-*Where 79.0 accounts for the terminal phosphate/water adjustment.*
-
----
-
-## 🛠️ Tech Stack
-* **Languages:** Python 3.10+, SQL (SQLite)
-* **Libraries:** `Pandas` (Data Processing), `Requests` (API calls), `CustomTkinter` (GUI), `SQLite3` (Database)
-* **Visualization:** Tableau Public
-* **Environment:** VS Code, Git
+* **NCBI Control:** Uses the Human Insulin (INS) gene as a biological gold-standard.
+* **SQL Suite:** Includes optimized queries for filtering genomic stability.
+* **GUI Workstation:** A CustomTkinter interface for real-time sequence analysis.
 
 ---
 
 ## 📂 Repository Structure
 ```text
 ├── app/
-│   └── biostream_pro.py        # Main GUI Application Workstation
+│   └── biostream_pro.py        # GUI Application
 ├── scripts/
-│   ├── data_generator.py       # API Fetching & Mock Data Logic
-│   ├── db_loader.py            # CSV to SQL Database Migration
-│   └── run_queries.py          # Analytical SQL Suite (5 Queries)
+│   ├── data_generator.py       # API & Mock Data Logic
+│   └── db_loader.py            # SQL Migration
 ├── data/
-│   ├── genomic_batch_results.csv
-│   └── BioResearch.db          # Relational Database File
-├── README.md
-└── requirements.txt            # Project dependencies
+│   └── BioResearch.db          # Relational Database
+├── dashboard.png               # Dashboard Preview Image
+└── README.md
+
+📦 Installation
+git clone https://github.com/YourUsername/BioStream-Analytics.git
+
+pip install -r requirements.txt
+
+Run scripts/data_generator.py then app/biostream_pro.py.
