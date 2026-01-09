@@ -1,6 +1,6 @@
 # BioStream Analytics: End-to-End Genomic Data Pipeline
 
-![Genomic Dashboard Preview]![Genomic Dashboard Preview](https://via.placeholder.com/800x400.png?text=Place+Your+Dashboard+Screenshot+Here)
+![Genomic Dashboard Preview](https://via.placeholder.com/800x400.png?text=Place+Your+Dashboard+Screenshot+Here)
 
 
 ## 🧪 Project Overview
